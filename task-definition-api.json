@@ -4,12 +4,12 @@
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "512",
   "memory": "1024",
-  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ecsTaskRole",
+  "executionRoleArn": "arn:aws:iam::224084343375:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::224084343375:role/ecsTaskRole",
   "containerDefinitions": [
     {
       "name": "the-swagger-api",
-      "image": "YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/the-swagger-api:latest",
+      "image": "224084343375.dkr.ecr.us-east-2.amazonaws.com/the-swagger-api:latest",
       "essential": true,
       "portMappings": [
         {
@@ -25,26 +25,26 @@
       "secrets": [
         {
           "name": "DATABASE_URL",
-          "valueFrom": "arn:aws:secretsmanager:YOUR_REGION:YOUR_ACCOUNT_ID:secret:the-swagger/database-url-XXXXXX"
+          "valueFrom": "arn:aws:secretsmanager:us-east-2:224084343375:secret:the-swagger/database-url-jKoTXD"
         },
         {
           "name": "JWT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:YOUR_REGION:YOUR_ACCOUNT_ID:secret:the-swagger/jwt-secret-XXXXXX"
+          "valueFrom": "arn:aws:secretsmanager:us-east-2:224084343375:secret:the-swagger/jwt-secret-0xgRnS"
         },
         {
           "name": "COOKIE_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:YOUR_REGION:YOUR_ACCOUNT_ID:secret:the-swagger/cookie-secret-XXXXXX"
+          "valueFrom": "arn:aws:secretsmanager:us-east-2:224084343375:secret:the-swagger/cookie-secret-1tHC9U"
         },
         {
           "name": "CORS_ORIGIN",
-          "valueFrom": "arn:aws:secretsmanager:YOUR_REGION:YOUR_ACCOUNT_ID:secret:the-swagger/cors-origin-XXXXXX"
+          "valueFrom": "arn:aws:secretsmanager:us-east-2:224084343375:secret:the-swagger/cors-origin-JdSDqc"
         }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/the-swagger-api",
-          "awslogs-region": "YOUR_REGION",
+          "awslogs-region": "us-east-2",
           "awslogs-stream-prefix": "ecs"
         }
       },
